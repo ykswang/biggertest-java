@@ -1,0 +1,23 @@
+group 'comon.biggertest'
+version '1.0-SNAPSHOT'
+
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+task "create-dirs" << {
+    sourceSets*.java.srcDirs*.each { it.mkdirs() }
+    sourceSets*.resources.srcDirs*.each { it.mkdirs() }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'io.cucumber:gherkin3:3.1.2'
+    compile 'org.apache.ant:ant:1.9.6'
+    compile 'org.reflections:reflections:0.9.10'
+    testCompile 'junit:junit:4.11'
+}
