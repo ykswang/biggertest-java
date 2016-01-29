@@ -87,10 +87,9 @@ public class BTStep {
             Matcher matcher = action.getPattern().matcher(step.getText());
             if(!matcher.matches()) continue;
             step.setAction(action);
-            for(int i=1; i<matcher.groupCount(); i++) {
-                params.add(matcher.group(i));
+            for (int i = 1; i <= matcher.groupCount(); i++) {
+                params.add(matcher.group(i).trim());
             }
-            break;
         }
 
         if(step.getAction() == null) return null;
@@ -119,10 +118,12 @@ public class BTStep {
                 params.add(param);
             }
         }
+        step.setParams(params.toArray());
         return step;
     }
 
     public void run() throws Exception {
+        System.out.println("-- " + text);
         Method method = action.getMethod();
         method.invoke(action.getInstance(), params);
     }

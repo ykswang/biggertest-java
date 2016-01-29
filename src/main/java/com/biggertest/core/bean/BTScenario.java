@@ -138,12 +138,16 @@ public class BTScenario {
                     for(Step step : hookSteps) stepGroup.add(BTStep.getInstance(step, actions, null));
                 }
             }
+            scenario.setSteps(stepGroup);
         }
 
         return scenarios;
     }
 
     public boolean run() {
+
+        System.out.println("[" + name + "]");
+
         int i=0;
 
         try {

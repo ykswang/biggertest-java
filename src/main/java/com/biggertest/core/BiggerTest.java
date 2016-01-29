@@ -39,7 +39,6 @@ public class BiggerTest {
         for(String filePath : filePaths) {
             BTFeature feature = BTFeature.getInstance(filePath, tags, actions);
             if(feature!=null) features.add(feature);
-            System.out.printf("Feature Founded: %s\n", feature.getName());
         }
     }
 
